@@ -7,7 +7,7 @@ description: Install docker on an EC2 instance. Then build and run an image crea
 
 ### Prerequisites
 - [x] Docker account
-- [x] Access to an EC2
+- [x] Access to AWS EC2
 - [x] GitHub account
 - [x] PuTTY
 
