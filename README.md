@@ -10,6 +10,8 @@ We will first configure and launch an EC2 instance. Then we use Docker to build 
 
 ### Setup EC2 instance
 
+If you have access to AWS Academy, login to [AWS Academy](https://www.awsacademy.com/LMS_Login) and start the Sandbox Environment to access AWS EC2.
+
 1. Create a key pair
 2. Create a security group with inbound rules set to allow SSH from your IP address and outbound rules to allow HTTP(S) to the internet (0.0.0.0/0).[^2]
 3. Launch an EC2 instance with the key pair and security group you created.
