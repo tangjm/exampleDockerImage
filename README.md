@@ -5,7 +5,7 @@ We will first configure and launch an EC2 instance. Then we use Docker to build 
 
 - [x] Docker account
 - [x] AWS Account
-- [x] PuTTY
+- [x] PuTTY on Windows or OpenSSH on MacOS and Linux (SSH is probably already installed)
 
 ### Setup EC2 instance
 
