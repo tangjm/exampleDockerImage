@@ -62,7 +62,7 @@ Start docker if docker is not running
 sudo service docker start
 ```
 
-Build a container image from a Git repository. Either use [this one](https://github.com/tangjm/testDockerOnEC2#main) I made  or create your own.
+Build a container image from a Git repository. Either use the one I made or create your own.
 
 ```bash
 sudo docker build -t my-app:v1 https://github.com/tangjm/testDockerOnEC2#main
@@ -95,11 +95,12 @@ sudo docker run my-app:v1
 To push to `docker.io`, you will need a docker account, register for one [here](https://hub.docker.com/)
 
 Before pushing your image, make sure to login first
+
 ```bash
 sudo docker login
 ```
 
-Then tag the image you want to push
+Then tag the image you want to push ensuring that the repository name of the new tag has the prefix `your_username/`. This is because container image names have the format `hostname/repository:tag` and we are simply renaming the `repository` part.
 
 ```bash
 sudo docker tag my-app:v1 <your_docker_username>/my-app:v1
