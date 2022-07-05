@@ -5,7 +5,6 @@ We will first configure and launch an EC2 instance. Then we use Docker to build 
 
 - [x] Docker account
 - [x] AWS Account
-- [x] GitHub account
 - [x] PuTTY
 
 ### Setup EC2 instance
