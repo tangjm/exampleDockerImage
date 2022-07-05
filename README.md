@@ -11,6 +11,7 @@ We will first configure and launch an EC2 instance. Then we use Docker to build 
 
 If you have access to AWS Academy, login to [AWS Academy](https://www.awsacademy.com/LMS_Login) and start the Sandbox Environment to access AWS EC2.
 
+**For Windows Systems**:
 1. Create a key pair
 2. Create a security group with inbound rules set to allow SSH from your IP address and outbound rules to allow HTTP(S) to the internet (0.0.0.0/0).[^2]
 3. Launch an EC2 instance with the key pair and security group you created.
@@ -25,6 +26,24 @@ If you have access to AWS Academy, login to [AWS Academy](https://www.awsacademy
          Open the private key you downloaded when you created the key pair.
 
 From this point onwards, we will be working inside the PuTTY client.
+
+
+**For MacOS and Linux**
+If you're on MacOS or Linux, using OpenSSH:
+ 1. When creating your AWS instance key-pair, make sure you choose .pem for the private key format, this is the one     that works with OpenSSH
+ 2. Open a terminal session
+ 3. Make sure the private key from the key pair you created is saved to your `~/.ssh` folder
+ 4. Change the permissions of the private key to read-only by your current user using `chmod 400 key-pair.pem`
+ 5. Type `ssh -i /path/to/key-pair.pem  ec2-user@[your EC2 instance public DNS name]` and press enter. For example:
+
+  `ssh -i ~/.ssh/key-pair-name.pem ec2-user@ec2-12-123-12-12.eu-west-2.compute.amazonaws.com`
+
+   N.B. If you didn't use an Amazon AMI, then the username will most likely be `ubuntu` for an Ubuntu AMI, or potentially another name if you used a different instance.
+
+ 6. You should get a response asking you if you'd like to continue, select yes.
+ 7. You should now be connected.
+ 8. If you got an error because OpenSSH isn't installed, install OpenSSH through your package manager (Brew for Mac; APT, DNF, etc for Linux).
+
 
 ### 1. Setup
 
