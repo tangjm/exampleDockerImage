@@ -1,21 +1,19 @@
----
-title: Docker on EC2
-description: Install docker on an EC2 instance. Then build and run an image created from a Dockerfile inside a GitHub repository before pushing the image to the Docker Hub container registry.
----
+# Build and run a Docker container image on an EC2 instance [^1]
 
-# Build and run a Docker container image on an EC2 instance
-
+We will first configure and launch an EC2 instance. Then we use Docker to build and run an image created from a Dockerfile inside a public GitHub repository before pushing the image to the Docker Hub container registry.
 ### Prerequisites
+
 - [x] Docker account
-- [x] Access to an EC2
+- [x] AWS Account
 - [x] GitHub account
 - [x] PuTTY
 
 ### Setup EC2 instance
+
 1. Create a key pair
-2. Create a security group with inbound rules set to allow SSH from your IP address and outbound rules to allow HTTP(S) to the internet (0.0.0.0/0).[^1]
+2. Create a security group with inbound rules set to allow SSH from your IP address and outbound rules to allow HTTP(S) to the internet (0.0.0.0/0).[^2]
 3. Launch an EC2 instance with the key pair and security group you created.
-4. Use PuTTY to connect to your EC2 instance. [^2]
+4. Use PuTTY to connect to your EC2 instance. [^3]
    Two things to do: 
     1. Set the host name of your EC2 instance
         - In the 'Category' pane, click 'Session' and set Host Name to "ec2-user" + "@" + Public IPv4 DNS of EC2 instance. 
@@ -42,6 +40,7 @@ sudo yum install docker -y
 ```
 
 Install Git
+
 ```bash
 sudo yum install git -y
 ```
@@ -68,9 +67,9 @@ Build a container image from a Git repository. Either use [this one](https://git
 sudo docker build -t my-app:v1 https://github.com/tangjm/testDockerOnEC2#main
 ```
 
-The argument to `docker build` is the build context. This is a set of files used for generating your image. They should reside within the same directory as your Dockerfile. In this case, we're passing a URL to use a remote directory for our build context. The suffix `#main` indicates that we want the main branch version of our repository. See [docs](https://docs.docker.com/engine/reference/commandline/build/#git-repositories) for more on this.
+The argument to `docker build` is the build context. This is a set of files used for generating your image. They should reside within the same directory as your Dockerfile. In this case, we're passing a URL to use a remote directory for our build context. The suffix `#main` indicates that we want the contents of our respository on our main branch. See [docs](https://docs.docker.com/engine/reference/commandline/build/#git-repositories) for more on this.
 
-The build context is first sent to the Docker daemon. Then the instructions within your Dockerfile are executed in order. Finally, the container image is built.
+The build context is first sent to the Docker daemon. Then the instructions within your Dockerfile are executed in order, adding an immutable layer each time. Finally, the container image is built.
 
 Check that the image was built successfully
 
@@ -121,8 +120,8 @@ Verify the push by going back to [docker hub](https://hub.docker.com/).
 
 A new repo should have appeared!
 
+[^1]: Follow the EC2 section from [this guide](https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/) if you have trouble setting up and connecting to an EC2 instance
 
+[^2]: We allow SSH from your IP address so that you can connect to your EC2 instance via SSH using PuTTY. The outbound rules are there so that you can access the internet to install Docker and Git.
 
-[^1]: We allow SSH from your IP address so that you can connect to your EC2 instance via SSH using PuTTY. The outbound rules are there so that you can access the internet to install Docker and Git.
-
-[^2]: [Detailed instructions here](https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#using-putty-to-connect-to-your-instance)
+[^3]: [Detailed instructions here](https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#using-putty-to-connect-to-your-instance)
