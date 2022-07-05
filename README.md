@@ -12,7 +12,7 @@ We will first configure and launch an EC2 instance. Then we use Docker to build 
 If you have access to AWS Academy, login to [AWS Academy](https://www.awsacademy.com/LMS_Login) and start the Sandbox Environment to access AWS EC2.
 
 **For Windows Systems**:
-1. Create a key pair
+1. Create a key pair using the .ppk private key format, this works with PuTTY
 2. Create a security group with inbound rules set to allow SSH from your IP address and outbound rules to allow HTTP(S) to the internet (0.0.0.0/0).[^2]
 3. Launch an EC2 instance with the key pair and security group you created.
 4. Use PuTTY to connect to your EC2 instance. [^3]
