@@ -38,11 +38,11 @@ If you're on MacOS or Linux, using OpenSSH:
 
   `ssh -i ~/.ssh/key-pair-name.pem ec2-user@ec2-12-123-12-12.eu-west-2.compute.amazonaws.com`
 
-   N.B. If you didn't use an Amazon AMI, then the username will most likely be `ubuntu` for an Ubuntu AMI, or potentially another instance name.
+   N.B. If you didn't use an Amazon AMI, then the username will most likely be `ubuntu` for an Ubuntu AMI, or potentially another name if you used a different instance.
 
  6. You should get a response asking you if you'd like to continue, select yes.
  7. You should now be connected.
- 8. If you got an error because OpenSSH isn't installed, install OpenSSH through your package manager (Brew for Mac;     APT, DNF, etc for Linux).
+ 8. If you got an error because OpenSSH isn't installed, install OpenSSH through your package manager (Brew for Mac; APT, DNF, etc for Linux).
 
 
 ### 1. Setup
