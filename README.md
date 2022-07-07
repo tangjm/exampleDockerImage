@@ -69,16 +69,20 @@ sudo yum install git -y
 
 Docker needs to be running before we can build an image from a Dockerfile.
 
-Check if docker is running
+Check if the docker daemon is running. A daemon is just a program that runs continuously and exists for the purpose of handling periodic service requests that a computer system expects to receive.
 
 ```bash
 sudo service docker status
 ```
 
-Start docker if docker is not running
+Start docker if docker is not running with one of these two commands:
 
 ```bash
 sudo service docker start
+```
+
+```bash
+sudo systemctl start docker
 ```
 
 Build a container image from a Git repository. Either use the one I made or create your own.
