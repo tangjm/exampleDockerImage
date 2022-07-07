@@ -115,7 +115,7 @@ sudo docker run my-app:v1
 
 ### 3. Pushing images to container registries
 
-To push to `docker.io`, you will need a docker account, register for one [here](https://hub.docker.com/)
+To push to Docker Hub, you will need a docker account, register for one [here](https://hub.docker.com/)
 
 Before pushing your image, make sure to login first
 
@@ -123,7 +123,7 @@ Before pushing your image, make sure to login first
 sudo docker login
 ```
 
-Then tag the image you want to push ensuring that the repository name of the new tag has the prefix `your_username/`. This is because container image names have the format `hostname/repository:tag` and we are simply renaming the `repository` part.
+Then tag the image you want to push ensuring that the repository name of the new tag has the prefix `your_username/`. Container image names have the format `hostname/repository:tag` and we are simply renaming the `repository` part to meet the formatting requirements of Docker Hub.
 
 ```bash
 sudo docker tag my-app:v1 <your_docker_username>/my-app:v1
